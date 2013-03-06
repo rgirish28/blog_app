@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306083019) do
+ActiveRecord::Schema.define(:version => 20130306132331) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -36,11 +36,22 @@ ActiveRecord::Schema.define(:version => 20130306083019) do
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
+  create_table "following_relationships", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "following_relationships", ["follower_id"], :name => "index_following_relationships_on_follower_id"
+  add_index "following_relationships", ["following_id"], :name => "index_following_relationships_on_following_id"
+
   create_table "pictures", :force => true do |t|
     t.string   "name"
     t.integer  "imageable_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "imageable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "pictures", ["imageable_id"], :name => "index_pictures_on_imageable_id"
@@ -58,13 +69,13 @@ ActiveRecord::Schema.define(:version => 20130306083019) do
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
 
-  create_table "posts_tag", :force => true do |t|
+  create_table "posts_tags", :force => true do |t|
     t.integer "post_id"
     t.integer "tag_id"
   end
 
-  add_index "posts_tag", ["post_id"], :name => "index_posts_tag_on_post_id"
-  add_index "posts_tag", ["tag_id"], :name => "index_posts_tag_on_tag_id"
+  add_index "posts_tags", ["post_id"], :name => "index_posts_tags_on_post_id"
+  add_index "posts_tags", ["tag_id"], :name => "index_posts_tags_on_tag_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name"
