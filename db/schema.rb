@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306063353) do
+ActiveRecord::Schema.define(:version => 20130306071837) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(:version => 20130306063353) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "website"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "author_id"
@@ -36,5 +48,19 @@ ActiveRecord::Schema.define(:version => 20130306063353) do
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
+
+  create_table "posts_tag", :force => true do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
+  add_index "posts_tag", ["post_id"], :name => "index_posts_tag_on_post_id"
+  add_index "posts_tag", ["tag_id"], :name => "index_posts_tag_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
