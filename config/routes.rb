@@ -1,11 +1,12 @@
 BlogApp::Application.routes.draw do
-  get "post/index"
-
-  get "post/view"
-
-  get "post/new"
-
-  get "post/edit"
+  resources :authors do
+    resources :posts do
+      resources :comments
+    end
+  end
+  resources :tags do
+    resources :posts
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
