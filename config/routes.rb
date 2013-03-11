@@ -1,8 +1,9 @@
 BlogApp::Application.routes.draw do
+  
+
+  root :to => 'welcome#index'
   resources :authors do
-    resources :posts do
-      resources :comments
-    end
+    resources :posts 
   end
   resources :tags
 
@@ -55,7 +56,7 @@ BlogApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  
 
   # See how all your routes lay out with "rake routes"
 

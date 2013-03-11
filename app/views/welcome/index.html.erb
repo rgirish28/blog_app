@@ -1,0 +1,23 @@
+<h1>Welcome to the Blog</h1>
+<p> Posts <p>
+	
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Author</th>
+	<th></th>
+  </tr>
+
+<% @posts.sort_by {|obj| obj.posted}%>
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= post.content %></td>
+    <td><%= post.author.name %></td>
+	<td><%= link_to "Show", author_post_path(post)%>
+  </tr>
+<% end %>
+</table>
+
+<br />
