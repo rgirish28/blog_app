@@ -15,7 +15,7 @@
     <td><%= post.title %></td>
     <td><%= post.content %></td>
     <td><%= post.author.name %></td>
-	<td><%= link_to "Show", author_post_path(post)%>
+	<td><%= link_to "Show", author_post_path(post.author, post)%>
   </tr>
 <% end %>
 </table>
