@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306132331) do
+ActiveRecord::Schema.define(:version => 20130314193242) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(:version => 20130306132331) do
   add_index "posts_tags", ["tag_id"], :name => "index_posts_tags_on_tag_id"
 
   create_table "tags", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
 end

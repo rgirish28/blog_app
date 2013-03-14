@@ -1,2 +1,16 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1><%= @post.title %> - <%= l @post.created_at, :format => :short%></h1>
+<p><%= @post.content %></p>
+
+<h3>Comments</h3>
+<% @post.comments.each do |comment|%>
+<p><%= comment.content%></p>
+<p><%= comment.name%></p>
+<p><%= comment.email%></p>
+<p>-----------------------------------------</p>
+<% end %>
+
+<%=link_to "New Comment", new_author_post_comment_path(@post.author,@post)%>
+
+<%= link_to 'Back', author_posts_path %>
+<%= link_to 'Home', root_path %>
+

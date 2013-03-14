@@ -1,9 +1,10 @@
 BlogApp::Application.routes.draw do
-  
 
   root :to => 'welcome#index'
   resources :authors do
-    resources :posts 
+    resources :posts do
+      resources :comments
+    end
   end
   resources :tags
 

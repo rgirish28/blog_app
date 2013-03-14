@@ -1,2 +1,28 @@
-<h1>Authors#index</h1>
-<p>Find me in app/views/authors/index.html.erb</p>
+<h1>Authors</h1>
+
+<p>
+<%= link_to "New", new_author_path(@author)%>	
+</p>	
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+	<th></th>
+	<th></th>
+  </tr>
+
+<% @authors.each do |author| %>
+  <tr>
+    <td><%= link_to author.name, author_path(author)%></td>
+    <td><%= author.email %></td>    
+	<td><%= link_to "Edit", edit_author_path(author)%></td>
+	<td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'Back', root_path %>

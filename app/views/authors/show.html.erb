@@ -1,2 +1,9 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<h1><%= @author.name%>'s Profile</h1>
+
+<p> <%= @author.email %> </p>
+<p> <%= @author.facebook %></p>
+
+<h1><%= link_to "Posts", author_posts_path(@author)%></h1>
+
+<%= link_to 'Back', authors_path %>
+<%= link_to 'Home', root_path %>
