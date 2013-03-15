@@ -6,11 +6,18 @@
 <p><%= comment.content%></p>
 <p><%= comment.name%></p>
 <p><%= comment.email%></p>
-<p>-----------------------------------------</p>
+<p><hr></p>
 <% end %>
 
 <%=link_to "New Comment", new_author_post_comment_path(@post.author,@post)%>
 
+<p><h3> Tags </h3> 
+<%@post.tags.each do |tag|%>
+<t><%= tag.name%></t>
+<% end %>
+</p>
+
+<p>
 <%= link_to 'Back', author_posts_path %>
 <%= link_to 'Home', root_path %>
-
+</p>

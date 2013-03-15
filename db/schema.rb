@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314193242) do
+ActiveRecord::Schema.define(:version => 20130315120940) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130314193242) do
     t.integer  "shares"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "tag_names"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"

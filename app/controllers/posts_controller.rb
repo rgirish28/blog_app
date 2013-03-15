@@ -5,8 +5,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:post])
-    @post.author_id = params[:author_id]
+    @author = Author.find(params[:author_id])
+    @post = @author.posts.new(params[:post])
     @post.save
     redirect_to author_posts_path(@post.author, @post)
   end
