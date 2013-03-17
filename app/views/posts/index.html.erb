@@ -1,4 +1,4 @@
-<h1><%= link_to @author.name,author_path(@author)%>'s Posts</h1>
+<div id="header"><%= link_to @author.name,author_path(@author)%>'s Posts</div>
 
 <p>
 <%= link_to "New", new_author_post_path(@author)%>	
@@ -11,9 +11,10 @@
 	<th></th>
   </tr>
 
+<% even = 0%>
 <% @posts.sort_by {|obj| obj.posted}%>
 <% @posts.each do |post| %>
-  <tr>
+	<%if even%2==0%> <tr> <% else %> <tr class ="alt"> <%end%> 
     <td><%= link_to post.title, author_post_path(post.author, post)%></td>
     <td><%= post.content %></td>    
 	<td><%= link_to "Edit", edit_author_post_path(post.author, post)%></td>

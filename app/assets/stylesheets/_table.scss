@@ -1,0 +1,20 @@
+table {
+	@include content-font;
+	width:100%;
+	border-collapse:collapse;
+	th 
+	{
+	font-size:1.1em;
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color:$main-color;
+	color:$bg-color;
+	}
+	tr.alt td
+	{
+	color:#000000;
+	background-color:#EAF2D3;
+	}
+	
+}

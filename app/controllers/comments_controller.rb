@@ -13,12 +13,11 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = post.comments.new(params[:comment])
+    @comment = @post.comments.new(params[:comment])
     @comment.save
     @author = Author.find(params[:author_id])
     @post = Post.find(params[:post_id])
     redirect_to author_post_path(@author, @post)
-    @post.save
   end
 
   def edit

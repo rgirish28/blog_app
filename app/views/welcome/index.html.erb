@@ -1,4 +1,5 @@
-<h1>Welcome to the Blog</h1>
+
+<div id = "header">Welcome to the Blog</div>
 <p><h3> Posts </h3></p>
 	
 <table>
@@ -11,9 +12,10 @@
 	<th></th>
   </tr>
 
+<% even = 0%>
 <% @posts.sort_by {|obj| obj.created_at}%>
 <% @posts.reverse.each do |post| %>
-  <tr>
+	<%if even%2==0%> <tr> <% else %> <tr class ="alt"> <%end%> 
     <td><%= link_to post.title, author_post_path(post.author, post)%></td>
     <td><%= post.content %></td>
 	<td><%= link_to post.author.name, author_posts_path(post.author)%></td>    

@@ -7,11 +7,11 @@ class Post < ActiveRecord::Base
   attr_accessible :content, :likes, :posted, :shares, :title, :tag_names
   
   def tag_split
-    self.tag_names.split.each do |tags|
-      if Tag.find_by_name(tags).nil?
-        self.tags << (Tag.new(:name => tags))
+    self.tag_names.split(',').each do |tags|
+      if tag = Tag.find_by_name(tags)
+        self.tags << tag
       else
-        self.tags << Tag.find_by_name(tags)
+        self.tags << Tag.create(:name => tags)
       end
     end
   end

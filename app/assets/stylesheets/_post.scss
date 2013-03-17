@@ -1,0 +1,13 @@
+article {
+  @include content-font;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: darken($bg-secondary-color, 12%);
+}
+
+.comment {
+  @include content-font;
+  background-color: $bg-secondary-color;
+  padding: 10px;
+  margin: 10px 0;
+}

@@ -1,5 +1,5 @@
-<h1><%@tag.name%></h1>
-
+<div id="header"><%=@tag.name%></div>
+<p>
 <table>
   <tr>
     <th>Title</th>
@@ -21,6 +21,6 @@
 	  </tr>
 	<% end %>
 	</table>
-	
+</p>	
 	<%= link_to 'Back', tags_path %>
 	<%= link_to 'Home', root_path %>
