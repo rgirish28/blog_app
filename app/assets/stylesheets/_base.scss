@@ -10,20 +10,6 @@ body {
 	}
 }
 
-nav {
-  overflow: auto;
-
-  ul {
-    list-style: none;
-    padding: 0px;
-
-    li {
-      float: left;
-      padding-right: 10px;
-    }
-  }
-}
-
 h1 { 
   @include title-font;
   font-size: 46px; 
@@ -49,4 +35,8 @@ h4 {
 p {
   margin: 10px 0;
   font-size: 12px;
+}
+
+a {
+  color: $link-color;
 }

@@ -7,7 +7,7 @@ $text-light: lighten(black, 15%);
 
 $title-color: $text-color;
 $bg-color: white;
-$link-color: #003c46;
+$link-color: darken($main-color,30%);
 $bg-secondary-color: darken($bg-color, 10%);
 
 @import "mixins";

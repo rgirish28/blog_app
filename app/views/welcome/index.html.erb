@@ -15,7 +15,8 @@
 <% even = 0%>
 <% @posts.sort_by {|obj| obj.created_at}%>
 <% @posts.reverse.each do |post| %>
-	<%if even%2==0%> <tr> <% else %> <tr class ="alt"> <%end%> 
+	
+	<%if even%2==0%> <tr> <% else %> <tr class ="alt"> <%end%>
     <td><%= link_to post.title, author_post_path(post.author, post)%></td>
     <td><%= post.content %></td>
 	<td><%= link_to post.author.name, author_posts_path(post.author)%></td>    
@@ -23,11 +24,12 @@
 	<td><%= link_to "Edit", edit_author_post_path(post.author, post)%></td>
 	<td><%= link_to 'Destroy', [post.author,post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <% even = even+1%>
+
 <% end %>
 </table>
 
 <br />
-
 <h3><%= link_to "Authors", authors_path %></h3>
 
 

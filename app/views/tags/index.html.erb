@@ -11,11 +11,14 @@
 
 <% even = 0%>
 <% @tags.each do |tag| %>
-  <tr>
+  
+	<%if even%2==0%> <tr> <% else %> <tr class ="alt"> <%end%>
     <td><%= link_to tag.name, tag_path(tag)%></td>
 	<td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		
+	
   </tr>
+  <% even = even+1%>
+
 <% end %>
 </table>
 
